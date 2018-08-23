@@ -4,13 +4,8 @@ body {
 .container {
   padding-top:30px;
 }
-.generated .column {
-  background-image:none;
-}
-#board {
-  margin-left:auto;
-  margin-right:auto;
-  width:360px;
+#board-area .generated .column {
+  background-image:none;  
 }
 #player-1, #player-2 {
   width:100%;
