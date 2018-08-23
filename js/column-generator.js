@@ -1,4 +1,18 @@
 function ColumnGenerator() {
+	this.changeRowHeight = function(gridID,row,newHeight) {
+		if (row==="all") {
+			var rows = document.getElementById(gridID).children.length
+			for (var i=0; i<rows; i++) {
+				$('#'+gridID+' #column-'+i+'-0').css({
+					'height' : newHeight
+				})
+			}
+		} else {
+			$('#'+gridID+' #column-'+row+'-0').css({
+				'height' : newHeight
+			})
+		}
+	}
 	this.insertLayout = function(id,layoutArray,destination,bordered,labeled) {
 		var parent
 		destination ? parent = destination : parent = "#stage"
@@ -6,7 +20,6 @@ function ColumnGenerator() {
 		var columnLabel = '';
 		bordered ? border = ';border: 2px solid black' : false
 		var rows = layoutArray.length
-		console.log("making " + rows + " rows")
 		$(parent).append('<div id='+id+'></div>')
 		if (labeled) { $(parent).prepend('<h3>grid id: #'+id+'</h3>') }
 		for (var r=0;r<rows;r++) {
