@@ -4,10 +4,8 @@ var symbols = ["x","o"]
 var currentPlayer;
 $(function(){
   generator = new ColumnGenerator();
-  board = new Board(boardLayout)
-  player1 = new Player()
-  player2 = new Player()
-  currentPlayer = player1
+  game = new Game(boardLayout,["Linda","Roger"])
+  game.startGame()
 })
 function Space(board,row,column) {
   console.log(board + " board");
@@ -20,6 +18,7 @@ function Space(board,row,column) {
   var self = this
   this.div.mousedown(function(event){
     if (event.button === 0) {
+      console.log(currentPlayer)
       self.changeSymbol(currentPlayer.symbol)
     } else {
       self.changeSymbol('blank')
@@ -37,11 +36,11 @@ Space.prototype.changeSymbol = function(newSymbol) {
   this.div.removeClass('o')
   this.div.addClass(this.symbol)
 }
-function Player(name) {
+function Player(game,name) {
   this.index = players.length
   this.symbol = symbols[this.index]
   this.name = name
-  players.push(this)
+  game.players.push(this)
 }
 function Board(layout) {
   this.div = $('#board')
@@ -51,13 +50,24 @@ function Board(layout) {
     
   }
   generator.insertLayout('board',boardLayout,'#board-area',true)
+  var self = this
   this.layout.forEach(function(row,i){
     var row = row[0]
     for (var j=0; j<row.length; j++) {
-      new Space(this,i,j)
+      new Space(self,i,j)
     }
-  },this)
+  })
   makeSpacesSquare()
+}
+function Game(boardLayout,playerArray) {
+  this.board = new Board(boardLayout);
+  this.players = [];
+  for (var i=0; i<playerArray.length; i++) {
+    new Player(this,playerArray[i])
+  }
+  this.startGame = function() {
+    currentPlayer = this.players[0]
+  }
 }
 var boardLayout = [
   [[4,4,4]],
