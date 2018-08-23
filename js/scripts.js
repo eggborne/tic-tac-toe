@@ -2,13 +2,19 @@ $(function(){
   CG = new ColumnGenerator();
   CG.insertLayout('board',boardLayout,'#board-area',true)
   makeSpacesSquare()
-  $('.column.generated').click(function(){
-    console.log("clicked " + this.id)
-    $(this).css({
-      'background-color': 'black'
-    })
+  $('.column.generated').mousedown(function(event){
+    if (event.button===0) {
+      $(this).css({
+        'background-color': 'red'
+      })
+    } else {
+      $(this).css({
+        'background-color': 'blue'
+      })
+    }
   })
 })
+
 var boardLayout = [
   [[4,4,4]],
   [[4,4,4]],
