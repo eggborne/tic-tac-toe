@@ -14,40 +14,21 @@
   </head>
   <body oncontextmenu='event.preventDefault()'>
     <div id="container" class="container">
-      
-      <div class="row">
-        <div class="col-12">
-          <div class="jumbotron">
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col">
             <h1>Tic Tac Toe</h1>
+          </div>
+          <div style="padding-top:10px;" id="status-area" class="col">
+            <h5>Waiting for players...</h5>
           </div>
         </div>
       </div>
       <div class="row">
           <div class="col-1"></div>
         <div class="col-md-3" style="text-align:left">
-          <div class="card" id="player-1">
-            <div class="card-header">
-              <span class="h4" style="font-weight:bold" id="player-2-name">
-                Player 1
-              </span>
-            </div>
-            <div class="card-body" id="player-1-body">
-              <input class="form-control" type="text" id="player-1-input" placeholder="Player 1">
-              <button id="ready-button-1" class="btn btn-success btn-block">Ready!</button>
-              <!-- <img src="img/x.png"> -->
-            </div>
-          </div>
-          <div class="card" id="player-2">
-            <div class="card-header">
-              <span class="h4" style="font-weight:bold" id="player-2-name">
-                Player 2
-              </span>
-            </div>
-            <div class="card-body" id="player-2-body">
-                <input class="form-control" type="text" id="player-2-input" placeholder="Player 2">
-                <button id="ready-button-2" class="btn btn-success btn-block">Ready!</button>
-              <!-- <img src="img/o.png"> -->
-            </div>
+          <div id="player-card-area">
+            <!-- player cards go here -->
           </div>
         </div>
         <div class="col-md-7">
