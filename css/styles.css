@@ -1,12 +1,25 @@
 body {
-  background-color:lightgray;  
+  background-color:lightgray;
 }
 .container {
   padding-top:30px;
 }
 #board-area .generated .column {
-  background-image:none;  
+  background-color:white;
+  background-size: 90%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+.blank {
+  background:none;
+}
+.x {
+  background-image:url("../img/x.png");
+}
+.o {
+  background-image:url("../img/o.png");
+}
+
 #player-1, #player-2 {
   width:100%;
   height:100px;
