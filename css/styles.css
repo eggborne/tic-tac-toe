@@ -2,13 +2,13 @@ body {
   background-color:lightgray;
 }
 img {
-  width:50%;
+  width: 50%
 }
 input {
   width:100%;
 }
 button {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 .container {
   padding-top:30px;
@@ -17,16 +17,17 @@ button {
 .jumbotron {
   padding:5px 15px 5px 15px;
 }
-.card {
+.player-card {
   margin-bottom:20px;
 }
 #board-area .generated .column {
-  background-size: 90%;
+  background-size: 80%;
   background-position: center;
   background-repeat: no-repeat;
+  background-color:white;
 }
-.blank {
-  background:white;
+.blank  {
+  background-image:none;
 }
 .x {
   background-image:url("../img/x.png");
@@ -34,10 +35,24 @@ button {
 .o {
   background-image:url("../img/o.png");
 }
-
+.wait {
+  opacity: 0.5;
+}
+.dim {
+  opacity:0.3;
+  animation-name: flicker;
+	animation-duration: 25ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
 #player-1, #player-2 {
   width:100%;
   border:2px solid gray;
   border-radius:5px;
   text-align:center;
+}
+@keyframes flicker {
+  50% {
+    opacity: 0.8;
+  }
 }
